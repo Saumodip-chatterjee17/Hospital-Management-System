@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hospital & Lab Management System</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <h1>🏥 Hospital & Lab Management System</h1>
+    <nav>
+      <ul>
+        <li><a href="#" onclick="showSection('patients')">Patients</a></li>
+        <li><a href="#" onclick="showSection('doctors')">Doctors</a></li>
+        <li><a href="#" onclick="showSection('appointments')">Appointments</a></li>
+        <li><a href="#" onclick="showSection('labtests')">Lab Tests</a></li>
+        <li><a href="#" onclick="showSection('billing')">Billing</a></li>
+        <li><a href="#" onclick="showSection('reports')">Reports</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Main Content -->
+  <main>
+    <!-- Patients Section -->
+    <section id="patients" class="page">
+      <h2>Patients</h2>
+      <form onsubmit="addPatient(event)">
+        <input type="text" id="pname" placeholder="Patient Name" required>
+        <input type="number" id="page" placeholder="Age" required>
+        <input type="text" id="pgender" placeholder="Gender" required>
+        <button type="submit">Add Patient</button>
+      </form>
+      <table>
+        <thead>
+          <tr><th>Name</th><th>Age</th><th>Gender</th></tr>
+        </thead>
+        <tbody id="patientTable"></tbody>
+      </table>
+    </section>
+
+    <!-- Doctors Section -->
+    <section id="doctors" class="page hidden">
+      <h2>Doctors</h2>
+      <form onsubmit="addDoctor(event)">
+        <input type="text" id="dname" placeholder="Doctor Name" required>
+        <input type="text" id="dspecial" placeholder="Specialization" required>
+        <button type="submit">Add Doctor</button>
+      </form>
+      <table>
+        <thead>
+          <tr><th>Name</th><th>Specialization</th></tr>
+        </thead>
+        <tbody id="doctorTable"></tbody>
+      </table>
+    </section>
+
+    <!-- Appointments Section -->
+    <section id="appointments" class="page hidden">
+      <h2>Appointments</h2>
+      <form onsubmit="addAppointment(event)">
+        <input type="text" id="aname" placeholder="Patient Name" required>
+        <input type="text" id="adoctor" placeholder="Doctor Name" required>
+        <input type="date" id="adate" required>
+        <button type="submit">Add Appointment</button>
+      </form>
+      <table>
+        <thead>
+          <tr><th>Patient</th><th>Doctor</th><th>Date</th></tr>
+        </thead>
+        <tbody id="appointmentTable"></tbody>
+      </table>
+    </section>
+
+    <!-- Lab Tests Section -->
+    <section id="labtests" class="page hidden">
+      <h2>Lab Tests</h2>
+      <form onsubmit="addLabTest(event)">
+        <input type="text" id="ltpatient" placeholder="Patient Name" required>
+        <input type="text" id="lttest" placeholder="Test Name" required>
+        <button type="submit">Add Lab Test</button>
+      </form>
+      <table>
+        <thead>
+          <tr><th>Patient</th><th>Test</th></tr>
+        </thead>
+        <tbody id="labTable"></tbody>
+      </table>
+    </section>
+
+    <!-- Billing Section -->
+    <section id="billing" class="page hidden">
+      <h2>Billing</h2>
+      <form onsubmit="addBill(event)">
+        <input type="text" id="bpatient" placeholder="Patient Name" required>
+        <input type="number" id="bamount" placeholder="Amount" required>
+        <button type="submit">Add Bill</button>
+      </form>
+      <table>
+        <thead>
+          <tr><th>Patient</th><th>Amount</th></tr>
+        </thead>
+        <tbody id="billTable"></tbody>
+      </table>
+    </section>
+
+    <!-- Reports Section -->
+    <section id="reports" class="page hidden">
+      <h2>Reports</h2>
+      <button onclick="generateReport()">Generate Patient Report</button>
+      <div id="reportOutput"></div>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
